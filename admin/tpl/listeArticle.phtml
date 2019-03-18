@@ -1,0 +1,24 @@
+<body>
+    <table>
+        <thead>
+            <th>Image</th>
+            <th>Titre</th>
+            <th>Date publication</th>
+            <th>Auteur</th>
+            <th></th>
+        </thead>
+        <tbody>
+            <?php foreach($articles as $article):?>
+                <tr>
+                    <td><?php if($article['a_picture'] != null):?><img width="150" src="<?=UPLOADS_URL.$article['a_picture']?>"><?php endif;?></td>
+                    <td><?=$article['a_title']?></td>
+                    <td><?=(new DateTime($article['a_date_published']))->format('d/m/Y H:i:s')?></td>
+                    <td><?=$article['a_author']?></td>
+                    <td><a href="editArticle.php?id=<?=$article['a_id']?>"><i class="far fa-edit"></i></a> <a href="delArticle.php?id=<?=$article['a_id']?>" data-toggle="modal" data-target="#delete"><i class="fas fa-trash-alt"></i></a></td>
+                
+                </tr> 
+            <?php endforeach;?>
+        </tbody>
+    </table>
+
+</body>

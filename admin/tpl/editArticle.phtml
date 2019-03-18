@@ -1,0 +1,23 @@
+<body>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Categorie</th>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Date</th>
+        </thead>
+        <tbody>
+            <?php foreach($articles as $article):?>
+                <tr>
+                    <td><a href="article.php?id=<?=$article['id']?>"><?=$article['id']?></a></td>
+                    <td><?=$article['categorie']?></td>
+                    <td><?=$article['title']?></td>
+                    <td><?=$article['author']?></td>
+                    <td><?=$article['date_published']?></td>
+                </tr>
+            <?php endforeach;?>
+        </tbody>
+    </table>
+
+</body>

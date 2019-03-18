@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog</title>
+
+<!--appel logo-->         
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+<!--appel css--> 
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" media="screen" href="../css/picto.css">
+
+<!--appel js--> 
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
+
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="addArticle.php">Nouvel article</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="listeArticle.php">Les articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="addUser.php">Nouvel utilisateur</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="loging.php">Se connecter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <h1><?=$titlePage?></h1>
+            <?php if(isset($flashbag)):?>
+            <div class="alert alert-success" role="alert">
+                <?php foreach($flashbag as $message):?>
+                        <?=$message?>
+                <?php endforeach;?>
+            </div>
+        <?php endif;?>
+
+                      
+            <?php
+                //include('tpl/addArticle.phtml');
+                include('tpl/'.$vue);
+            ?>
+        </div>
+    </main>
+
+</body>
+</html>

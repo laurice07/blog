@@ -1,0 +1,73 @@
+<form action="addUser.php " method="POST" enctype="multipart/form-data" class="form-horizontal">
+    <?php if(isset($erreurEmail) && $erreurEmail):?>
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                <?php foreach($erreurEmail as $erreur):?>
+                    <li class="erreur"><?=$erreur;?></li>
+                <?php endforeach;?>
+        </div>
+    <?php endif;?>
+
+<fieldset>
+    
+    
+    <div class="form-group">
+        <label for="email" class="col-lg-2 control-label">Email</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" id="email" name="email"  value="<?=$email?>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="firstName" class="col-lg-2 control-label">Nom</label>
+        <div class="col-lg-10">
+        <input type="text" class="form-control"  id="firstName" name="firstName"><?=$firstName?></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastName" class="col-lg-2 control-label">Prénom</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" id="lastName" name="lastName" value="<?=$lastName?>">
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="pass" class="col-sm-2 col-form-label">pass</label>
+        <div class="col-lg-10">
+            <input type="password" class="form-control" id="pass" name="pass" placeholder="Mot de passe">
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="pass" class="col-sm-2 col-form-label">passCtrl</label>
+        <div class="col-lg-10">
+            <input type="password" class="form-control" id="passCtrl" name="passCtrl"  placeholder="Confirmez le mot de passe">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="role"class="col-lg-2 control-label">role</label>
+        <div class="col-lg-2">
+            <select class="form-control" id="role" name="role">
+                <?php foreach(ROLES as $role):?>
+                <option value="<?=$role?>"><?=$role?></option>
+                <?php endforeach;?>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" name="valide"  id="valide" checked="">
+        <label class="custom-control-label" for="valide">Publier l'article</label>
+        <small id="publieHelp" class="form-text text-muted">L'article sera mis en brouillon si vous décochez cette case !</small>
+      </div>
+    </div>
+    
+    <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </div>
+</fieldset>
+</form>

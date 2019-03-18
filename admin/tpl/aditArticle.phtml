@@ -1,0 +1,23 @@
+<body>
+        
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Date</th>
+        </thead>
+        <tbody>
+            <?php foreach($articles as $article):?>
+                <tr>
+                    <td><a href="article.php?id=<?=$article['customerNumber']?>"><?=$article['customerNumber']?></a></td>
+                    <td><?=$article['customerName']?></td>
+                    <td><?=$article['city']?></td>
+                    <td><?=$article['country']?></td>
+                </tr>
+            <?php endforeach;?>
+        </tbody>
+    </table>
+
+
+</body>

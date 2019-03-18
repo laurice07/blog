@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin blog - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/picto.css">
+    <link href="css/login.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first big">
+      <i class="icon-user"></i>
+    </div>
+
+    <!-- Login Form -->
+    <form method="POST" action="login.php">
+      <input type="text" id="login" class="fadeIn second" name="email" placeholder="Email">
+      <input type="text" id="password" class="fadeIn third" name="password" placeholder="Mot de passe">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="forgotPassword.php">Mot de passe oublié ?</a>
+    </div>
+
+  </div>
+</div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>

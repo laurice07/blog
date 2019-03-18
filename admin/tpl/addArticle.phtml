@@ -1,0 +1,79 @@
+<form action="<?php if(is_null($id)):?>addArticle.php <?php else:?>editArticle.php<?php endif;?>" method="POST" enctype="multipart/form-data" class="form-horizontal">
+    <?php if(isset($erreurTitle) && count($erreurTitle)>0):?>
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                <?php foreach($erreurTitle as $erreur):?>
+                <li class="erreur"><?=$erreur;?></li>
+                <?php endforeach;?>
+            </div>
+    <?php endif;?>
+
+  <?php if(!is_null($id)):?>
+    <input type="hidden" value="<?=$id?>" name="id">
+  <?php endif;?>
+
+<fieldset>
+      
+    <div class="form-group">
+        <label for="title" class="col-lg-2 control-label">Title</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" id="title" name="title"  value="<?=$title?>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+        <div class="col-lg-10">
+            <textarea class="form-control" rows="3" id="content" name="content"><?=$content?></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="author" class="col-lg-2 control-label">Author</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" id="author" name="author" value="<?=$author?>">
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="date" class="col-sm-2 col-form-label">Date et heure de publication</label>
+        <div class="col-4">
+            <input type="date" class="form-control" id="date" name="date" value="<?=$datePublished->format('Y-m-d')?>">
+        </div>
+        <div class="col-2">
+            <input type="time" class="form-control" id="time" name="time"  value="<?=$datePublished->format('H:i')?>">
+      </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="categorie"class="col-lg-2 control-label">categorie</label>
+        <div class="col-lg-2">
+            <select class="form-control" id="categorie" name="categorie">
+                <?php foreach($categories as $categorie):?>
+                    <option value="<?=$categorie['c_id']?>" <?php if($categorie == $categorie['c_id']):?>selected<?php endif;?>><?=$categorie['c_title']?></option>
+                <?php endforeach;?>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputFile">Photo</label>
+        <input type="file" class="form-control-file" id="picture" name="picture" aria-describedby="fileHelp">
+        
+    </div>
+
+    <div class="form-group">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" name="valide"  id="valide" <?php if($valide == true):?>checked=""<?php endif;?>>
+        <label class="custom-control-label" for="valide">Publier l'article</label>
+        <small id="publieHelp" class="form-text text-muted">L'article sera mis en brouillon si vous décochez cette case !</small>
+      </div>
+    </div>
+    
+    <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </div>
+</fieldset>
+</form>
+    
